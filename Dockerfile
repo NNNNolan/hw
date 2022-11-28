@@ -10,7 +10,7 @@ COPY . .
 WORKDIR "/src/src/HW"
 ARG RID=linux-musl-x64
 RUN if [ "$TARGETPLATFORM" = "linux/amd64" ];  then \
-     RID=linux-x64 ; \
+     RID=linux-musl-x64 ; \
 elif [ "§TARGETPLATFORM" = "linux/arm64" ]; then \
      RID=linux-musl-arm64；\
 elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
