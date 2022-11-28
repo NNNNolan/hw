@@ -1,5 +1,5 @@
 ## 修改内容
-
+ARG TARGETPLATFORM
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 
 WORKDIR /src
