@@ -16,8 +16,9 @@ elif [ "§TARGETPLATFORM" = "linux/arm64" ]; then \
 elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
      RID=linux-musl-arm ;\
 fi && \
+RUN echo "当前打包 $RID"
 RUN dotnet publish -c Release  RID -o /app -p:PublishSingleFile=true -p:PublishTrimmed=true
-FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.0-alpine3.16
+FROM mcr.microsoft.com/dotnet/runtime-deps:7.0.0-alpine3.16
 
 WORKDIR /app
 COPY --from=build /app .
