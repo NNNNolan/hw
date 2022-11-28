@@ -14,4 +14,10 @@
     <SourceRoot Include="D:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
     <SourceRoot Include="C:\Program Files\dotnet\sdk\NuGetFallbackFolder\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)\microsoft.visualstudio.azure.containers.tools.targets\1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('$(NuGetPackageRoot)\microsoft.visualstudio.azure.containers.tools.targets\1.14.0\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets Condition=" '$(PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets)' == '' ">D:\Nuget\Package\microsoft.visualstudio.azure.containers.tools.targets\1.14.0</PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets>
+  </PropertyGroup>
 </Project>
