@@ -35,3 +35,6 @@
 *.dll
 bin/
 obj/
+*.v1
+*.v2
+*.suo
