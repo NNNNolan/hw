@@ -1,0 +1,15 @@
+E:\nvjdc\ad\fdd\hw\src\HW\bin\Debug\net6.0\HW.exe
+E:\nvjdc\ad\fdd\hw\src\HW\bin\Debug\net6.0\HW.deps.json
+E:\nvjdc\ad\fdd\hw\src\HW\bin\Debug\net6.0\HW.runtimeconfig.json
+E:\nvjdc\ad\fdd\hw\src\HW\bin\Debug\net6.0\HW.dll
+E:\nvjdc\ad\fdd\hw\src\HW\bin\Debug\net6.0\HW.pdb
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.csproj.AssemblyReference.cache
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.GeneratedMSBuildEditorConfig.editorconfig
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.AssemblyInfoInputs.cache
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.AssemblyInfo.cs
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.csproj.CoreCompileInputs.cache
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.dll
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\refint\HW.dll
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.pdb
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\HW.genruntimeconfig.cache
+E:\nvjdc\ad\fdd\hw\src\HW\obj\Debug\net6.0\ref\HW.dll
