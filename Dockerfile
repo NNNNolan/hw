@@ -16,4 +16,4 @@ COPY --from=build /usr/release /app
 RUN apk add --no-cache tzdata
 RUN chmod 777 /app/*
 ENV TZ=Asia/Shanghai
-ENTRYPOINT ["/app/HW"]
+CMD ["/app/HW"]
