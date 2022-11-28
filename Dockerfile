@@ -1,5 +1,4 @@
 ## 修改内容
-ARG TARGETPLATFORM
 FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
 
 WORKDIR /src
@@ -8,16 +7,18 @@ RUN dotnet restore "src/HW/HW.csproj"
 
 COPY . .
 WORKDIR "/src/src/HW"
-ARG RID=linux-musl-x64
-RUN if [ "$TARGETPLATFORM" = "linux/amd64" ];  then \
-     RID=linux-musl-x64 ; \
-elif [ "§TARGETPLATFORM" = "linux/arm64" ]; then \
-     RID=linux-musl-arm64；\
-elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
-     RID=linux-musl-arm ;\
-fi && \
-RUN echo "当前打包 $RID"
-RUN dotnet publish -c Release  RID -o /app -p:PublishSingleFile=true -p:PublishTrimmed=true
+
+ARG TARGETPLATFORM
+RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
+    RID=linux-musl-x64 ; \
+    elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
+    RID=linux-musl-arm64 ; \
+    elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
+    RID=linux-musl-arm ; \
+    fi \
+    &&echo "当前打包 $RID" &&dotnet publish -c Release -o /app -r $RID -p:PublishSingleFile=true -p:PublishTrimmed=true
+
+##RUN dotnet publish -c Release  $BUILDPLATFORM -o /app -p:PublishSingleFile=true -p:PublishTrimmed=true
 FROM mcr.microsoft.com/dotnet/runtime-deps:7.0.0-alpine3.16
 
 WORKDIR /app
