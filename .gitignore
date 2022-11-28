@@ -30,7 +30,8 @@
 *.exe
 *.out
 *.app
-
+.vs/
+.vscode/
 *.dll
 bin/
 obj/
