@@ -8,12 +8,20 @@ RUN dotnet restore "src/HW/HW.csproj"
 
 COPY . .
 WORKDIR "/src/src/HW"
-RUN dotnet publish -c Release  --use-current-runtime -o /usr/release -p:PublishSingleFile=true -p:PublishTrimmed=true
-FROM mcr.microsoft.com/dotnet/runtime-deps:7.0.0-alpine3.16
+ARG RID=linux-musl-x64
+RUN if [ "$TARGETPLATFORM" = "linux/amd64" ];  then \
+     RID=linux-x64 ; \
+elif [ "§TARGETPLATFORM" = "linux/arm64" ]; then \
+     RID=linux-musl-arm64；\
+elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
+     RID=linux-musl-arm ;\
+fi && \
+RUN dotnet publish -c Release  RID -o /app -p:PublishSingleFile=true -p:PublishTrimmed=true
+FROM mcr.microsoft.com/dotnet/runtime-deps:6.0.0-alpine3.16
 
 WORKDIR /app
-COPY --from=build /usr/release /app
+COPY --from=build /app .
 RUN apk add --no-cache tzdata
 RUN chmod 777 /app/*
 ENV TZ=Asia/Shanghai
-CMD ["/app/HW"]
+ENTRYPOINT ["./HW"]
