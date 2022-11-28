@@ -13,10 +13,10 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
     RID=linux-musl-x64 ; \
     elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
     RID=linux-musl-arm64 ; \
-    elif [ "$TARGETPLATFORM" = "linux/arm" ]; then \
+    elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
     RID=linux-musl-arm ; \
     fi \
-    &&echo "当前打包 $RID" &&dotnet publish -c Release -o /app -r $RID -p:PublishSingleFile=true -p:PublishTrimmed=true
+    &&echo "当前打包 $TARGETPLATFORM $RID" &&dotnet publish -c Release -o /app -r $RID -p:PublishSingleFile=true -p:PublishTrimmed=true
 
 ##RUN dotnet publish -c Release  $BUILDPLATFORM -o /app -p:PublishSingleFile=true -p:PublishTrimmed=true
 FROM mcr.microsoft.com/dotnet/runtime-deps:7.0.0-alpine3.16
