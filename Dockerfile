@@ -13,7 +13,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/amd64" ]; then \
     RID=linux-musl-x64 ; \
     elif [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
     RID=linux-musl-arm64 ; \
-    elif [ "$TARGETPLATFORM" = "linux/arm/v7" ]; then \
+    elif [ "$TARGETPLATFORM" = "linux/arm" ]; then \
     RID=linux-musl-arm ; \
     fi \
     &&echo "当前打包 $TARGETPLATFORM $RID" &&dotnet publish -c Release -o /app -r $RID -p:PublishSingleFile=true -p:PublishTrimmed=true --self-contained true
